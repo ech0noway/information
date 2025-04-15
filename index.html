@@ -169,70 +169,44 @@
   </div>
 </div>
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-
-  .card {
-    background-color: #cccacc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 12px 16px;
-    max-width: 240px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    font-size: 13px;
-    z-index: 1000;
-  }
-
-  .card button {
-    background-color: #9146FF; /* Twitch фиолетовый */
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    font-size: 13px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
-    width: 100%;
-  }
-
-  .card button:hover {
-    background-color: #772ce8;
-    transform: scale(1.04);
-  }
-
-  .card p {
-    margin-top: 8px;
-    font-size: 13px;
-    text-align: center;
-  }
-
-  /* Позиция кликера — снизу слева */
   .click-card {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
+    background-color: #cccacc;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    z-index: 1000;
   }
 
-  /* Позиция IQ — чуть выше */
-  .iq-card {
-    position: fixed;
-    bottom: 100px; /* чуть выше */
-    left: 20px;
+  .click-card button {
+    background-color: #9146FF; /* Twitch фиолетовый */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+  }
+
+  .click-card button:hover {
+    background-color: #772ce8;
+    transform: scale(1.05);
+  }
+
+  .click-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
   }
 </style>
 
-<!-- Карточка IQ -->
-<div class="card iq-card">
-  <button onclick="iq()">Проверить свой IQ</button>
-  <p id="iqResult">Твой IQ: ❓</p>
-</div>
-
-<!-- Карточка кликера -->
-<div class="card click-card">
+<div class="click-card">
   <button onclick="clickCounter()">Кликай</button>
   <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
 </div>
@@ -242,11 +216,6 @@
   function clickCounter() {
     count++;
     document.getElementById("count").textContent = count;
-  }
-
-  function iq() {
-    const iq = Math.floor(Math.random() * 100) + 60;
-    document.getElementById("iqResult").textContent = "Твой IQ: " + iq;
   }
 </script>
 </body>
