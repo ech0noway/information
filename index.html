@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+ 
+ <html>
+    <head>                                                                                                         
+      <meta charset="utf-8">
+      <title>Про ech0noway</title>
+    </head>  
+   <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      transition: background-color 0.4s, color 0.4s;
+    }
+    body.light {
+ 
+      background-color: white;
+ 
+      color: black;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 18px;
+      font-size: 14px;
+      background-color: grey;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+    .theme-toggle:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Кнопка для смены темы -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Сменить тему</button> 
+  <script> 
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      // Меняем текст кнопки в зависимости от темы
+      const btn = document.querySelector(".theme-toggle");
+      if (document.body.classList.contains("light")) {
+      } else {
+        btn.innerText = "🌙 Светлая тема";
+        btn.innerText = "🌞 Светлая тема";
+      }
+    }
+  </script>
+  <script>
+  document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key === "z") {
+      alert("Поздравляю ты долбаеб 😈😈");
+    }
+  });
+</script>
+  <style>
+  body {
+    cursor: none;
+  }
+  .glow {
+    position: fixed;
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 30px #0ff;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+</style>
+<div class="glow" id="glow"></div>
+<script>
+  const glow = document.getElementById("glow");
+  document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  }); 
+</script>
+<script>
+  for (let i = 0; i < 100; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = 5 + Math.random() * 5 + "s";
+    document.body.appendChild(star);
+  } 
+</script>
+  <h1 id="typing"></h1>
+<script> 
+  const text = "Всем привет тут будет вся доступная нам информация про ech0noway и его модеров";
+  let i = 0;
+  const speed = 70;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  typeWriter();
+</script>
+   <div style="position: absolute; right: 20px; top: 50px;">
+    <button onclick="clickCounter()">кликай</button>
+<p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
