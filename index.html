@@ -169,10 +169,13 @@
   </div>
 </div>
 <style>
-  .click-card {
-    position: fixed;
-    bottom: 20px;
-    left: 20px; /* Было right: 20px; — теперь left */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .card {
     background-color: #cccacc;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -183,7 +186,7 @@
     z-index: 1000;
   }
 
-  .click-card button {
+  .card button {
     background-color: #9146FF; /* Twitch фиолетовый */
     color: white;
     border: none;
@@ -194,19 +197,40 @@
     transition: background-color 0.3s, transform 0.1s;
   }
 
-  .click-card button:hover {
+  .card button:hover {
     background-color: #772ce8;
     transform: scale(1.05);
   }
 
-  .click-card p {
+  .card p {
     margin-top: 10px;
     font-size: 14px;
     text-align: center;
   }
+
+  /* Позиция кликера — снизу слева */
+  .click-card {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  /* Позиция IQ — чуть выше */
+  .iq-card {
+    position: fixed;
+    bottom: 120px; /* на 100px выше кликера */
+    left: 20px;
+  }
 </style>
 
-<div class="click-card">
+<!-- Карточка IQ -->
+<div class="card iq-card">
+  <button onclick="iq()">Проверить свой IQ</button>
+  <p id="iqResult">Твой IQ: ❓</p>
+</div>
+
+<!-- Карточка кликера -->
+<div class="card click-card">
   <button onclick="clickCounter()">Кликай</button>
   <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
 </div>
@@ -216,6 +240,11 @@
   function clickCounter() {
     count++;
     document.getElementById("count").textContent = count;
+  }
+
+  function iq() {
+    const iq = Math.floor(Math.random() * 100) + 60;
+    document.getElementById("iqResult").textContent = "Твой IQ: " + iq;
   }
 </script>
 </body>
