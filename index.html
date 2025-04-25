@@ -181,9 +181,9 @@
 </style>
 
 <div class="chatbot-box">
-  <h3>ech0 чат-бот</h3>
+  <h3>Я гений</h3>
   <div class="chat-log" id="chatLog">
-    <p><strong>🤖 Бот:</strong> Привет! Напиши что-нибудь 👇</p>
+    <p><strong>Гений:</strong> Привет! Напиши что-нибудь 👇</p>
   </div>
   <input type="text" id="chatInput" placeholder="Твое сообщение...">
   <button onclick="sendMessage()">Отправить</button>
@@ -199,10 +199,10 @@
     const msg = input.value.trim();
     if (!msg) return;
 
-    log.innerHTML += `<p><strong>🧑‍💻 Ты:</strong> ${msg}</p>`;
+    log.innerHTML += `<p><strong>Ты:</strong> ${msg}</p>`;
     input.value = "";
 
-    let reply = "Я тебя не понял 😅";
+    let reply = "Мне еще не добавили такой команды, напиши что-то другое";
     let media = "";
     const msgLow = msg.toLowerCase();
 
@@ -219,7 +219,7 @@
       media = `<video src="https://www.w3schools.com/html/mov_bbb.mp4" controls muted autoplay></video>`;
     }
 
-    log.innerHTML += `<p><strong>🤖 Бот:</strong> ${reply}</p>` + media;
+    log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>` + media;
     log.scrollTop = log.scrollHeight;
   }
 
