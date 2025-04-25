@@ -241,53 +241,42 @@
   </div>
 </div>
 <style>
-  .click-card {
+  .sound-button-wrapper {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Было right: 20px; — теперь left */
-    background-color: #cccacc;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    max-width: 300px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    z-index: 1000;
+    left: 20px;
+    z-index: 9999;
   }
 
-  .click-card button {
-    background-color: #9146FF; /* Twitch фиолетовый */
+  .sound-button {
+    background-color: #9146FF;
     color: white;
     border: none;
-    padding: 10px 18px;
-    font-size: 14px;
+    padding: 12px 20px;
+    font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
+    font-family: Arial, sans-serif;
     transition: background-color 0.3s, transform 0.1s;
   }
 
-  .click-card button:hover {
+  .sound-button:hover {
     background-color: #772ce8;
     transform: scale(1.05);
   }
-
-  .click-card p {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
-  }
 </style>
 
-<div class="click-card">
-  <button onclick="clickCounter()">Кликай</button>
-  <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
+<div class="sound-button-wrapper">
+  <button class="sound-button" onclick="playSound()">Кликай</button>
+ <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
 </div>
+
 <audio id="mySound" src="https://www.fesliyanstudios.com/play-mp3/6969" preload="auto"></audio>
 
 <script>
   function playSound() {
     const sound = document.getElementById("mySound");
-    sound.currentTime = 0; // начинается с начала
+    sound.currentTime = 0;
     sound.play();
   }
 </script>
