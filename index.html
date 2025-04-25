@@ -241,45 +241,66 @@
   </div>
 </div>
 <style>
-  .sound-button-wrapper {
+  .click-card {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    z-index: 9999;
+    background-color: #cccacc;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 280px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    z-index: 1000;
   }
 
-  .sound-button {
+  .click-card button {
     background-color: #9146FF;
     color: white;
     border: none;
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 10px 18px;
+    font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
-    font-family: Arial, sans-serif;
     transition: background-color 0.3s, transform 0.1s;
+    width: 100%;
   }
 
-  .sound-button:hover {
+  .click-card button:hover {
     background-color: #772ce8;
     transform: scale(1.05);
   }
+
+  .click-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
 </style>
 
-<div class="sound-button-wrapper">
-  <button class="sound-button" onclick="playSound()">Кликай</button>
- <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
+<!-- Карточка с кнопкой -->
+<div class="click-card">
+  <button onclick="clickCounter()">Кликай </button>
+  <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
 </div>
 
-<audio id="mySound" src="https://www.fesliyanstudios.com/play-mp3/6969" preload="auto"></audio>
+<!-- Звук -->
+<audio id="clickSound" src="https://www.fesliyanstudios.com/play-mp3/6969" preload="auto"></audio>
 
 <script>
-  function playSound() {
-    const sound = document.getElementById("mySound");
+  let count = 0;
+
+  function clickCounter() {
+    count++;
+    document.getElementById("count").textContent = count;
+
+    const sound = document.getElementById("clickSound");
     sound.currentTime = 0;
     sound.play();
   }
 </script>
+
 <script>
   let count = 0;
   function clickCounter() {
