@@ -172,9 +172,9 @@
 </style>
 
 <div class="chatbot-box">
-  <h3>ech0 чат-бот</h3>
+  <h3>Я не знаю кто я</h3>
   <div class="chat-log" id="chatLog">
-    <p><strong>🤖 Бот:</strong> Привет! Напиши что-нибудь 👇</p>
+    <p><strong>Гений:</strong> Привет! Напиши что-нибудь 👇</p>
   </div>
   <input type="text" id="chatInput" placeholder="Твое сообщение...">
   <button onclick="sendMessage()">Отправить</button>
@@ -187,7 +187,7 @@
     const msg = input.value.trim();
     if (!msg) return;
 
-    log.innerHTML += `<p><strong>🧑‍💻 Ты:</strong> ${msg}</p>`;
+    log.innerHTML += `<p><strong> Ты:</strong> ${msg}</p>`;
     input.value = "";
 
     let reply = "Я тебя не понял 😅";
