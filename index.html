@@ -190,7 +190,7 @@
     log.innerHTML += `<p><strong> Ты:</strong> ${msg}</p>`;
     input.value = "";
 
-    let reply = "Я тебя не понял 😅";
+    let reply = "У меня пока нет такой команды и я не могу тебе ответить😞";
     const msgLow = msg.toLowerCase();
 
     if (msgLow.includes("привет")) reply = "Здарова! Ты на связи с ech0!";
@@ -200,7 +200,7 @@
     else if (msgLow.includes("пока")) reply = "Удачи, бро!";
     else if (msgLow.includes("iq")) reply = "У тебя минимум 500, я уверен 😉";
 
-    log.innerHTML += `<p><strong>🤖 Бот:</strong> ${reply}</p>`;
+    log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>`;
     log.scrollTop = log.scrollHeight;
   }
 
