@@ -113,11 +113,11 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    width: 260px;
+    width: 340px; /* увеличили ширину */
     background-color: #cccacc;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    padding: 16px;
+    padding: 18px;
     font-family: Arial, sans-serif;
     font-size: 14px;
     color: #333;
@@ -126,37 +126,45 @@
 
   .chatbot-box h3 {
     margin-top: 0;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     color: #9146FF;
   }
 
   .chat-log {
-    height: 140px;
+    height: 260px; /* увеличили высоту */
     overflow-y: auto;
     background-color: white;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .chat-log p {
-    margin: 4px 0;
+    margin: 5px 0;
+  }
+
+  .chat-log img,
+  .chat-log video {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-top: 6px;
   }
 
   .chatbot-box input {
     width: 100%;
-    padding: 6px 10px;
+    padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid #aaa;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     box-sizing: border-box;
+    font-size: 14px;
   }
 
   .chatbot-box button {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     background-color: #9146FF;
     color: white;
     border: none;
@@ -164,6 +172,7 @@
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.2s;
+    font-size: 14px;
   }
 
   .chatbot-box button:hover {
@@ -172,13 +181,16 @@
 </style>
 
 <div class="chatbot-box">
-  <h3>Я гений</h3>
+  <h3>ech0 чат-бот</h3>
   <div class="chat-log" id="chatLog">
-    <p><strong>Гений:</strong> Привет! Напиши что-нибудь 👇</p>
+    <p><strong>🤖 Бот:</strong> Привет! Напиши что-нибудь 👇</p>
   </div>
   <input type="text" id="chatInput" placeholder="Твое сообщение...">
   <button onclick="sendMessage()">Отправить</button>
 </div>
+
+<!-- Звук -->
+<audio id="meowSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
 
 <script>
   function sendMessage() {
@@ -187,24 +199,30 @@
     const msg = input.value.trim();
     if (!msg) return;
 
-    log.innerHTML += `<p><strong> Ты:</strong> ${msg}</p>`;
+    log.innerHTML += `<p><strong>🧑‍💻 Ты:</strong> ${msg}</p>`;
     input.value = "";
 
-    let reply = "У меня пока нет такой команды и я не могу тебе ответить😞";
+    let reply = "Я тебя не понял 😅";
+    let media = "";
     const msgLow = msg.toLowerCase();
 
-    if (msgLow.includes("привет")) reply = "Здарова! Ты на связи с ech0!";
-    else if (msgLow.includes("кто ты")) reply = "Я бот ech0noway 💜";
-    else if (msgLow.includes("ech0")) reply = "Это легенда, ты чё 😈";
-    else if (msgLow.includes("модер")) reply = "Модеры — мощь.";
-    else if (msgLow.includes("пока")) reply = "Удачи, бро!";
-    else if (msgLow.includes("iq")) reply = "У тебя минимум 500, я уверен 😉";
+    if (msgLow.includes("привет")) {
+      reply = "Здарова, ты в чате ech0!";
+    } else if (msgLow.includes("мяу")) {
+      reply = "🐱";
+      document.getElementById("meowSound").play();
+    } else if (msgLow.includes("gif") || msgLow.includes("танцуй")) {
+      reply = "Вот тебе гифка, брат 😎";
+      media = `<img src="https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif">`;
+    } else if (msgLow.includes("ech0") || msgLow.includes("стрим")) {
+      reply = "Вот как это было на стриме:";
+      media = `<video src="https://www.w3schools.com/html/mov_bbb.mp4" controls muted autoplay></video>`;
+    }
 
-    log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>`;
+    log.innerHTML += `<p><strong>🤖 Бот:</strong> ${reply}</p>` + media;
     log.scrollTop = log.scrollHeight;
   }
 
-  // Отправка по Enter
   document.getElementById("chatInput").addEventListener("keypress", function (e) {
     if (e.key === "Enter") sendMessage();
   });
