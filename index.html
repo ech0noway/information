@@ -220,7 +220,7 @@
     } 
     log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>` + media;
     log.scrollTop = log.scrollHeight;
-
+  }
   document.getElementById("chatInput").addEventListener("keypress", function (e) {
     if (e.key === "Enter") sendMessage();
   });
