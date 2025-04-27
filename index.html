@@ -217,7 +217,11 @@
     } else if (msgLow.includes("ech0") || msgLow.includes("стрим")) {
       reply = "Вот как это было на стриме:";
       media = `<video src="https://www.w3schools.com/html/mov_bbb.mp4" controls muted autoplay></video>`; 
+    } else if (msgLow.includes("пидор")) || msgLow.includes("ПИДОР")) {
+      reply = "К тебе батя в комнату зашёл? Просто я гений, а ещё наверное твой батя😉";
     } 
+
+   
     log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>` + media;
     log.scrollTop = log.scrollHeight;
   }
