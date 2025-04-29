@@ -224,11 +224,9 @@
     } else if (msgLow.includes("gif") || msgLow.includes("танцуй")) {
       reply = "Вот тебе гифка, брат 😎";
       media = `<img src="мопс.mp4.gif">`;
-    } else if (msgLow.includes("Edit для владоса") {
-      reply = "Вот вам edit";
-      media = `<мопсы.mp4>`;
-    }
- 
+    } 
+
+   
     log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>` + media;
     log.scrollTop = log.scrollHeight;
   }
