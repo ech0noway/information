@@ -224,7 +224,10 @@
     } else if (msgLow.includes("gif") || msgLow.includes("танцуй")) {
       reply = "Владосик edit 😎";
       media = `<img src="0429.gif">`;
-    } 
+    } else if (msgLow.includes("дай видос")) {
+      reply = "Вот тебе лучший видос:";
+      media = `<video src="https://www.w3schools.com/html/mov_bbb.mp4" controls autoplay muted></video>`;
+    }
 
    
     log.innerHTML += `<p><strong>Гений:</strong> ${reply}</p>` + media;
